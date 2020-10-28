@@ -1,0 +1,28 @@
+<div className="App">
+  <div>
+    Array = [<ul class="inline">
+          <li *ngFor="let item of array; let i = index">
+            {{item}}
+            <span *ngIf="i != array.length - 1">,</span>
+          </li>
+    </ul>]
+  </div>
+
+  <form [formGroup]="formGroup" (ngSubmit)=chunkify()>
+    Slice Array items into
+    <input type="text" formControlName="numberOfChunks" /> chunks
+    <button type="submit">Chunkify</button>
+  </form>
+
+  <h3>Chunks</h3>
+  <ul>
+    <li *ngFor="let chunk of arrayChunks">
+      [<ul class="inline">
+        <li *ngFor="let chunkItem of chunk; let i = index">
+          {{chunkItem}}
+          <span *ngIf="i != chunk.length - 1">,</span>
+        </li>
+      </ul>]
+    </li>
+  </ul>
+</div>
